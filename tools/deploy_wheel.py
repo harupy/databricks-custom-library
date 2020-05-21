@@ -34,7 +34,6 @@ def main():
         "cluster_id": CLUSTER_ID,
         "libraries": [{"whl": f"dbfs:{dbfs_path}"}],
     }
-
     resp = api.post("/libraries/install", data=json.dumps(data))
     assert resp.status_code == 200
 
