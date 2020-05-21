@@ -24,7 +24,7 @@ def main():
             "overwrite": True,
         }
         resp = api.post("/dbfs/put", data=data, files={"contents": f})
-        print(resp.status_code)
+        print(resp.text)
 
     # Install the wheel to a cluster.
     data = {
@@ -33,7 +33,7 @@ def main():
     }
 
     resp = api.post("/libraries/install", data=data)
-    print(resp.status_code)
+    print(resp.text)
 
 
 if __name__ == "__main__":
