@@ -17,9 +17,8 @@ def main():
         data = {
             "path": dbfs_path,
             "overwrite": True,
-            "contents": f,
         }
-        resp = api.post("/dbfs/put", data=data)
+        resp = api.post("/dbfs/put", data=data, files={"contents": f})
         print(resp.text)
 
 
