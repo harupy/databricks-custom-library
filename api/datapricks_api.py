@@ -14,5 +14,5 @@ class DatabricksApi(requests.Session):
     def get(self, end_point, *args, **kwargs):
         super().get(self.BASE_URL + end_point, *args, **kwargs)
 
-     def post(self, end_point, *args, **kwargs):
+    def post(self, end_point, *args, **kwargs):
         super().post(self.BASE_URL + end_point, *args, **kwargs)
