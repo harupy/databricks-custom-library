@@ -27,7 +27,7 @@ def main():
             "contents": base64.b64encode(f.read()),
         }
         resp = api.post("/dbfs/put", data=data, files={"contents": f})
-        print(resp.text)
+        print(resp.status_code)
 
     # Install the wheel to a cluster.
     data = {
@@ -36,7 +36,7 @@ def main():
     }
 
     resp = api.post("/libraries/install", data=json.dumps(data))
-    print(resp.text)
+    print(resp.status_code)
 
 
 if __name__ == "__main__":
