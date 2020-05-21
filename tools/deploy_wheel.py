@@ -23,7 +23,7 @@ def main():
     with open(wheel_path, "rb") as f:
         data = {
             "path": dbfs_path,
-            "overwrite": "true",
+            "overwrite": "true",  # `True` does not work.
             "contents": base64.b64encode(f.read()),
         }
         resp = api.post("/dbfs/put", data=data, files={"contents": f})
@@ -35,7 +35,7 @@ def main():
         "libraries": [{"whl": f"dbfs:{dbfs_path}"}],
     }
 
-    resp = api.post("/libraries/install", data=data)
+    resp = api.post("/libraries/install", data=json.dumps(data))
     print(resp.text)
 
 
