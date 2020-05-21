@@ -19,7 +19,8 @@ def main():
             "overwrite": True,
             "contents": f,
         }
-        api.post("/dbfs/put", data=data)
+        resp = api.post("/dbfs/put", data=data)
+        print(resp.text)
 
 
 if __name__ == "__main__":

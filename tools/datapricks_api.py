@@ -12,7 +12,7 @@ class DatabricksApi(requests.Session):
         self.BASE_URL = f"https://{DATABRICKS_DOMAIN}/api/2.0"
 
     def get(self, end_point, *args, **kwargs):
-        super().get(self.BASE_URL + end_point, *args, **kwargs)
+        return super().get(self.BASE_URL + end_point, *args, **kwargs)
 
     def post(self, end_point, *args, **kwargs):
-        super().post(self.BASE_URL + end_point, *args, **kwargs)
+        return super().post(self.BASE_URL + end_point, *args, **kwargs)
