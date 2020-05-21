@@ -23,7 +23,7 @@ def main():
     with open(wheel_path, "rb") as f:
         data = {
             "path": dbfs_path,
-            "overwrite": True,
+            "overwrite": "true",
             "contents": base64.b64encode(f.read()),
         }
         resp = api.post("/dbfs/put", data=data, files={"contents": f})
