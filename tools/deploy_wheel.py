@@ -1,4 +1,5 @@
 import glob
+import json
 import os
 
 from tools.datapricks_api import DatabricksApi
@@ -23,7 +24,7 @@ def main():
             "path": dbfs_path,
             "overwrite": True,
         }
-        resp = api.post("/dbfs/put", json=data, files={"contents": f})
+        resp = api.post("/dbfs/put", data=json.dumps(data), files={"contents": f})
         print(resp.text)
 
     # Install the wheel to a cluster.
@@ -32,7 +33,7 @@ def main():
         "libraries": [{"whl": f"dbfs:{dbfs_path}"}],
     }
 
-    resp = api.post("/libraries/install", json=data)
+    resp = api.post("/libraries/install", data=json.dumps(data))
     print(resp.text)
 
 
