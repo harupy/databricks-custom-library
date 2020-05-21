@@ -26,7 +26,7 @@ def main():
         resp = api.post("/dbfs/put", data=data, files={"contents": f})
         print(resp.status_code)
 
-    # Install the wheel.
+    # Install the wheel to a cluster.
     data = {
         "cluster_id": CLUSTER_ID,
         "libraries": [{"whl": f"dbfs:{dbfs_path}"}],
