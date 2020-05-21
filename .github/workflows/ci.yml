@@ -69,3 +69,19 @@ jobs:
 
       - name: Install
         run: pip install -e .
+
+  build-wheel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Build package
+        run: python setup.py bdist_wheel
