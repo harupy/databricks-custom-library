@@ -39,3 +39,20 @@ jobs:
 
       - name: pytest
         run: pytest
+
+  build-doc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run: pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Build documentation
+        run: |
+          cd docs
+          make html
