@@ -105,7 +105,7 @@ jobs:
         with:
           path: dist
 
-      - run: ls dist
+      - run: ls dist/dblib-0.0.1-py3-none-any.whl
 
       - name: Set up Python
         uses: actions/setup-python@v2
