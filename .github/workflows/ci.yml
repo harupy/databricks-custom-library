@@ -87,9 +87,6 @@ jobs:
         run: |
           python setup.py bdist_wheel
 
-      - name: Set wheel name
-        run: echo ::set-env name=WHEEL_NAME::$(basename $(find dist -name "*.whl"))
-
       - uses: actions/upload-artifact@v2
         with:
           name: dist
