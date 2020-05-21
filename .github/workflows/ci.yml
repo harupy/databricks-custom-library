@@ -53,7 +53,9 @@ jobs:
         run: pip install -r requirements.txt -r requirements-dev.txt
 
       - name: Build documentation
-        run: cd docs && make html
+        run: |
+          cd docs
+          make html
 
   install:
     runs-on: ubuntu-latest
@@ -82,7 +84,8 @@ jobs:
         run: pip install -r requirements.txt -r requirements-dev.txt
 
       - name: Build wheel
-        run: python setup.py bdist_wheel
+        run: |
+          python setup.py bdist_wheel
 
       - uses: actions/upload-artifact@v2
         with:
