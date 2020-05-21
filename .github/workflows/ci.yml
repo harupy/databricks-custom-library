@@ -100,6 +100,8 @@ jobs:
         with:
           path: dist
 
+      - run: ls dist
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
