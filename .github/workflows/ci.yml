@@ -84,11 +84,18 @@ jobs:
         run: pip install -r requirements.txt -r requirements-dev.txt
 
       - name: Build wheel
-        run: python setup.py bdist_wheel
+        run: |
+          python setup.py bdist_wheel
+
+      - name: Set wheel name
+        run: |
+          WHEEL_NAME=$(basename $(find dist -name "*.whl"))
+          echo "::set-env name={WHEEL_NAME}::{$WHEEL_NAME}"
 
       - uses: actions/upload-artifact@v2
         with:
-          path: dist
+          name: ${{ env.WHEEL_NAME }}
+          path: dist/${{ env.WHEEL_NAME }}
 
   deploy-wheel:
     runs-on: ubuntu-latest
