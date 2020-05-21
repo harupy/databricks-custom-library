@@ -112,4 +112,4 @@ jobs:
         env:
           DATABRICKS_DOMAIN: ${{ secrets.DATABRICKS_DOMAIN }}
           DATABRICKS_API_TOKEN: ${{ secrets.DATABRICKS_API_TOKEN }}
-        run: python deploy_wheel.py
+        run: python tools/deploy_wheel.py
