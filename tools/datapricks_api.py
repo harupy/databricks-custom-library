@@ -1,15 +1,11 @@
-import os
-
 import requests
 
 
 class DatabricksApi(requests.Session):
-    def __init__(self):
+    def __init__(self, domain, token):
         super().__init__()
-        DATABRICKS_DOMAIN = os.getenv("DATABRICKS_DOMAIN")
-        DATABRICKS_API_TOKEN = os.getenv("DATABRICKS_API_TOKEN")
-        self.headers = {"Authorization": f"Bearer {DATABRICKS_API_TOKEN}"}
-        self.BASE_URL = f"https://{DATABRICKS_DOMAIN}/api/2.0"
+        self.BASE_URL = f"https://{domain}/api/2.0"
+        self.headers = {"Authorization": f"Bearer {token}"}
 
     def get(self, end_point, *args, **kwargs):
         return super().get(self.BASE_URL + end_point, *args, **kwargs)
