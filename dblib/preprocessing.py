@@ -8,6 +8,7 @@ def add_one(df, col):
     Parameters
     ----------
     df : Spark DataFrame
+        A dataframe to process.
     col : str
         A column to add one to. Must be numeric.
 
