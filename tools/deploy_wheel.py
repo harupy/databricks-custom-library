@@ -1,7 +1,7 @@
 import glob
 import os
 
-from api.datapricks_api import DatabricksApi
+from tools.datapricks_api import DatabricksApi
 
 
 def get_wheel():
