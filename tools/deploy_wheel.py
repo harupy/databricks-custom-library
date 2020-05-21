@@ -23,7 +23,7 @@ def main():
             "path": dbfs_path,
             "overwrite": True,
         }
-        resp = api.post("/dbfs/put", data=data, files={"contents": f})
+        resp = api.post("/dbfs/put", json=data, files={"contents": f})
         print(resp.text)
 
     # Install the wheel to a cluster.
@@ -32,7 +32,7 @@ def main():
         "libraries": [{"whl": f"dbfs:{dbfs_path}"}],
     }
 
-    resp = api.post("/libraries/install", data=data)
+    resp = api.post("/libraries/install", json=data)
     print(resp.text)
 
 
