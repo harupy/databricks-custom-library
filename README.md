@@ -2,7 +2,7 @@
 
 A template to develop a custom python library using Databricks REST API and GitHub Actions.
 
-## Creating a development environment.
+## Creating a development environment
 
 ```bash
 conda create -n <env_name> python=3.7
